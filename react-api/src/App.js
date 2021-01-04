@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import Files from './components/files';
+
+class App extends Component {
+  state = {
+    files: []
+  }
+  componentDidMount() {
+    fetch('https://api.put.io/v2/files/list?parent_id=-1', {
+      method: 'GET',
+      headers: new Headers({
+        'Authorization': 'Bearer UFFX2DMM7B2OJJCTQKFZ',
+        'Content-Type': 'application/json'
+      })
+    })
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ files: data.files })
+      })
+      .catch(console.log)
+  }
+  render() {
+    return (
+      <Files files={this.state.files} />
+    )
+  }
 }
 
 export default App;
