@@ -17,6 +17,15 @@ class App extends Component {
     })
       .then(res => res.json())
       .then((data) => {
+        // console.log(data.files)
+        // var parentFolders = [];
+        // data.files.forEach(element => {
+        //   if (element.parent_id === 0) {
+        //     parentFolders = [...parentFolders, element];
+        //   }
+        // });
+        // console.log(parentFolders)
+        // this.setState({ files: parentFolders })
         this.setState({ files: data.files })
       })
       .catch(console.log)

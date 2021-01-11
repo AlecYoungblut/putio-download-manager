@@ -53,7 +53,7 @@ const Files = ({ files }) => {
             setDirectoryFiles([]);
         }
         else {
-            fetch('https://api.put.io/v2/files/list?parent_id=' + folder + '&sort_by=NAME_ASC&file_type=AUDIO,VIDEO', {
+            fetch('https://api.put.io/v2/files/list?parent_id=' + folder + '&sort_by=NAME_ASC&file_type=AUDIO,VIDEO,FOLDER', {
                 method: 'GET',
                 headers: new Headers({
                     'Authorization': 'Bearer UFFX2DMM7B2OJJCTQKFZ',
