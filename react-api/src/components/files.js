@@ -49,11 +49,17 @@ const Files = ({ files }) => {
     }
 
     function getFilesList(folder) {
+        //check if folder, if folder return html
         if (directoryFiles && directoryFiles.length > 0) {
             setDirectoryFiles([]);
         }
+        //check if file, return download
+
+        // if (folder.file_type === 'FOLDER') {
+        //     return <p>OMG</p>
+        // }
         else {
-            fetch('https://api.put.io/v2/files/list?parent_id=' + folder + '&sort_by=NAME_ASC&file_type=AUDIO,VIDEO,FOLDER', {
+            fetch('https://api.put.io/v2/files/list?parent_id=' + folder.id + '&sort_by=NAME_ASC&file_type=AUDIO,VIDEO,FOLDER', {
                 method: 'GET',
                 headers: new Headers({
                     'Authorization': 'Bearer UFFX2DMM7B2OJJCTQKFZ',
@@ -69,6 +75,8 @@ const Files = ({ files }) => {
 
     }
 
+
+
     return (
         <div>
             <center><h1>File List</h1></center>
@@ -82,7 +90,7 @@ const Files = ({ files }) => {
             {files.map((file) => (
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title" onClick={() => getFilesList(file.id)}>
+                        <h5 class="card-title" onClick={() => getFilesList(file)}>
                             {file.name}
                         </h5>
                         {/* <h6 class="card-subtitle mb-2 text-muted">Id: {file.id} Size: {file.size}</h6>
@@ -96,13 +104,12 @@ const Files = ({ files }) => {
                             if (file.id === subfile.parent_id) {
                                 return (
                                     <div class="card-body">
-                                        <h5 class="card-title" onClick={() => getDownloadURL(subfile.id)}>
+                                        <h5 class="card-title" onClick={(file.file_type !== 'FOLDER') ? getDownloadURL(subfile.id) : undefined}>
                                             {subfile.name}
                                         </h5>
                                     </div>
                                 )
                             }
-
                         })}
                     </div>
                 </div>
