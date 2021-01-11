@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/putio-downloader/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/putio-downloader/static/js/main.3d09a739.chunk.js",
-    "main.js.map": "/putio-downloader/static/js/main.3d09a739.chunk.js.map",
-    "runtime-main.js": "/putio-downloader/static/js/runtime-main.9cd9a855.js",
-    "runtime-main.js.map": "/putio-downloader/static/js/runtime-main.9cd9a855.js.map",
-    "static/js/2.f2c9c611.chunk.js": "/putio-downloader/static/js/2.f2c9c611.chunk.js",
-    "static/js/2.f2c9c611.chunk.js.map": "/putio-downloader/static/js/2.f2c9c611.chunk.js.map",
-    "static/js/3.ac0a8d4a.chunk.js": "/putio-downloader/static/js/3.ac0a8d4a.chunk.js",
-    "static/js/3.ac0a8d4a.chunk.js.map": "/putio-downloader/static/js/3.ac0a8d4a.chunk.js.map",
-    "index.html": "/putio-downloader/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/putio-downloader/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.f2c9c611.chunk.js.LICENSE.txt": "/putio-downloader/static/js/2.f2c9c611.chunk.js.LICENSE.txt"
+    "main.css": "/putio-download-manager/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/putio-download-manager/static/js/main.3d09a739.chunk.js",
+    "main.js.map": "/putio-download-manager/static/js/main.3d09a739.chunk.js.map",
+    "runtime-main.js": "/putio-download-manager/static/js/runtime-main.6769fe9e.js",
+    "runtime-main.js.map": "/putio-download-manager/static/js/runtime-main.6769fe9e.js.map",
+    "static/js/2.f2c9c611.chunk.js": "/putio-download-manager/static/js/2.f2c9c611.chunk.js",
+    "static/js/2.f2c9c611.chunk.js.map": "/putio-download-manager/static/js/2.f2c9c611.chunk.js.map",
+    "static/js/3.ac0a8d4a.chunk.js": "/putio-download-manager/static/js/3.ac0a8d4a.chunk.js",
+    "static/js/3.ac0a8d4a.chunk.js.map": "/putio-download-manager/static/js/3.ac0a8d4a.chunk.js.map",
+    "index.html": "/putio-download-manager/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/putio-download-manager/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.f2c9c611.chunk.js.LICENSE.txt": "/putio-download-manager/static/js/2.f2c9c611.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9cd9a855.js",
+    "static/js/runtime-main.6769fe9e.js",
     "static/js/2.f2c9c611.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
     "static/js/main.3d09a739.chunk.js"
