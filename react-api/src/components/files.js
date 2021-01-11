@@ -75,18 +75,16 @@ const Files = ({ files }) => {
 
     }
 
-
-
     return (
         <div>
             <center><h1>File List</h1></center>
-            {filesToDownload.map((file) => (
+            {/* {filesToDownload.map((file) => (
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-subtitle mb-2 text-muted">Id: {file.id}</h6>
                     </div>
                 </div>
-            ))}
+            ))} */}
             {files.map((file) => (
                 <div class="card">
                     <div class="card-body">
@@ -104,7 +102,8 @@ const Files = ({ files }) => {
                             if (file.id === subfile.parent_id) {
                                 return (
                                     <div class="card-body">
-                                        <h5 class="card-title" onClick={(file.file_type !== 'FOLDER') ? getDownloadURL(subfile.id) : undefined}>
+                                        {/* <h5 class="card-title" onClick={(file.file_type !== 'FOLDER') ? getDownloadURL(subfile.id) : undefined}> */}
+                                        <h5 class="card-title" onClick={() => getDownloadURL(subfile.id)}>
                                             {subfile.name}
                                         </h5>
                                     </div>

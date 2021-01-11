@@ -20,7 +20,7 @@ class App extends Component {
         console.log(data.files)
         var parentFolders = [];
         data.files.forEach(element => {
-          if (element.parent_id === 0) {
+          if (element.parent_id === 0 && element.name === "For Download") {
             parentFolders = [...parentFolders, element];
           }
         });
