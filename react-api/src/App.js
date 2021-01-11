@@ -8,7 +8,7 @@ class App extends Component {
     files: []
   }
   componentDidMount() {
-    fetch('https://api.put.io/v2/files/list?parent_id=-1', {
+    fetch('https://api.put.io/v2/files/list?sort_by=NAME_ASC&file_type=FOLDER&parent_id=-1', {
       method: 'GET',
       headers: new Headers({
         'Authorization': 'Bearer UFFX2DMM7B2OJJCTQKFZ',

@@ -4,6 +4,7 @@ const Files = ({ files }) => {
 
     const [filesToDownload, setFilesToDownload] = useState([{ id: "" }]);
     const [checked, setChecked] = useState(false);
+    const [directoryFiles, setDirectoryFiles] = useState([]);
 
     function handleCheck(fileId) {
         console.log("TEST #1");
@@ -31,7 +32,8 @@ const Files = ({ files }) => {
 
 
     function getDownloadURL(file) {
-        fetch('https://api.put.io/v2/files/' + file.id + '/url', {
+        //https://api.put.io/v2/files/690563972/url
+        fetch('https://api.put.io/v2/files/' + file + '/url', {
             method: 'GET',
             headers: new Headers({
                 'Authorization': 'Bearer UFFX2DMM7B2OJJCTQKFZ',
@@ -40,13 +42,32 @@ const Files = ({ files }) => {
         })
             .then(res => res.json())
             .then((data) => {
-                console.log(data);
-                var win = window.open(data, '_blank');
+                var win = window.open(data.url);
                 win.focus();
             })
             .catch(console.log)
     }
 
+    function getFilesList(folder) {
+        if (directoryFiles && directoryFiles.length > 0) {
+            setDirectoryFiles([]);
+        }
+        else {
+            fetch('https://api.put.io/v2/files/list?parent_id=' + folder + '&sort_by=NAME_ASC&file_type=AUDIO,VIDEO', {
+                method: 'GET',
+                headers: new Headers({
+                    'Authorization': 'Bearer UFFX2DMM7B2OJJCTQKFZ',
+                    'Content-Type': 'application/json'
+                })
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    setDirectoryFiles(data.files);
+                })
+                .catch(console.log)
+        }
+
+    }
 
     return (
         <div>
@@ -61,12 +82,28 @@ const Files = ({ files }) => {
             {files.map((file) => (
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title" onClick={() => getDownloadURL(file.url)}>{file.name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Id: {file.id} Size: {file.size}</h6>
+                        <h5 class="card-title" onClick={() => getFilesList(file.id)}>
+                            {file.name}
+                        </h5>
+                        {/* <h6 class="card-subtitle mb-2 text-muted">Id: {file.id} Size: {file.size}</h6>
                         <p class="card-text">{file.content_type}</p>
                         <p class="card-text">
-                            <input type="checkbox" className={`checkbox-${file.id}`} onChange={() => handleCheck(file.id)} defaultChecked={checked} />
-                        </p>
+
+                        </p> */}
+                        {/* setDirectoryFiles */}
+
+                        {directoryFiles.map((subfile) => {
+                            if (file.id === subfile.parent_id) {
+                                return (
+                                    <div class="card-body">
+                                        <h5 class="card-title" onClick={() => getDownloadURL(subfile.id)}>
+                                            {subfile.name}
+                                        </h5>
+                                    </div>
+                                )
+                            }
+
+                        })}
                     </div>
                 </div>
             ))}
